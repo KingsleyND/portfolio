@@ -37,9 +37,9 @@ const projects = [
     link: "#",
   },
   {
-    title: "Lorem Ipsum Project Delta",
+    title: "",
     description:
-      "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum.",
+      ".",
     image: null,
     tags: ["LangChain", "OpenAI", "AWS Bedrock"],
     link: "#",
@@ -75,15 +75,19 @@ function renderProjects() {
       (project, index) => `
     <article
       class="project-card reveal reveal-delay-${(index % 3) + 1}"
-      role="link"
-      tabindex="0"
-      aria-label="View ${project.title}"
       data-link="${project.link}"
     >
       <div class="project-card__image-wrap">
         ${
           project.image
-            ? `<img src="${project.image}" alt="${project.title}" loading="lazy" style="object-fit:${project.imageFit || 'cover'}" />`
+            ? `<img src="${project.image}" alt="${project.title}" loading="lazy" style="object-fit:${project.imageFit || 'cover'}" />
+               <div class="project-card__img-hover" data-src="${project.image}" data-alt="${project.title}">
+                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                   <path d="M1 12S5 4 12 4s11 8 11 8-4 8-11 8S1 12 1 12z"/>
+                   <circle cx="12" cy="12" r="3"/>
+                 </svg>
+                 <span>View Image</span>
+               </div>`
             : `<div class="project-card__image-placeholder">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -93,34 +97,79 @@ function renderProjects() {
                 <span>Image Placeholder</span>
               </div>`
         }
-        <div class="project-card__overlay"></div>
       </div>
       <div class="project-card__body">
         <div class="project-card__tags">
           ${project.tags.map((t) => `<span class="project-card__tag">${t}</span>`).join("")}
         </div>
-        <h3 class="project-card__title">${project.title}</h3>
-        <p class="project-card__desc">${project.description}</p>
+        <h3 class="project-card__title project-card__clickable" data-link="${project.link}">${project.title}</h3>
+        <p class="project-card__desc project-card__clickable" data-link="${project.link}">${project.description}</p>
       </div>
       <div class="project-card__footer">
-        <span class="project-card__link">View Project <span>→</span></span>
+        <span class="project-card__link project-card__clickable" data-link="${project.link}">View Project <span>→</span></span>
       </div>
     </article>
   `
     )
     .join("");
 
-  // Make cards clickable
-  document.querySelectorAll(".project-card").forEach((card) => {
-    const navigate = () => {
-      const link = card.dataset.link;
+  // Navigate only on title, description, footer link
+  document.querySelectorAll(".project-card__clickable").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const link = el.dataset.link;
       if (link && link !== "#") window.open(link, "_blank", "noopener,noreferrer");
-    };
-    card.addEventListener("click", navigate);
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); navigate(); }
     });
   });
+
+  // Image hover overlay → open lightbox
+  document.querySelectorAll(".project-card__img-hover").forEach((overlay) => {
+    overlay.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openLightbox(overlay.dataset.src, overlay.dataset.alt);
+    });
+  });
+}
+
+/* =============================================
+   LIGHTBOX
+   ============================================= */
+function initLightbox() {
+  const lb = document.createElement("div");
+  lb.id = "lightbox";
+  lb.innerHTML = `
+    <div id="lightbox__backdrop"></div>
+    <button id="lightbox__close" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <div id="lightbox__img-wrap">
+      <img id="lightbox__img" src="" alt="" />
+    </div>
+  `;
+  document.body.appendChild(lb);
+
+  document.getElementById("lightbox__backdrop").addEventListener("click", closeLightbox);
+  document.getElementById("lightbox__close").addEventListener("click", closeLightbox);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+}
+
+function openLightbox(src, alt) {
+  const lb = document.getElementById("lightbox");
+  const img = document.getElementById("lightbox__img");
+  img.src = src;
+  img.alt = alt;
+  lb.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  const lb = document.getElementById("lightbox");
+  lb.classList.remove("active");
+  document.body.style.overflow = "";
 }
 
 /* =============================================
@@ -186,6 +235,7 @@ function setYear() {
    INIT
    ============================================= */
 document.addEventListener("DOMContentLoaded", () => {
+  initLightbox();
   renderProjects();
   initReveal();
   initNav();
