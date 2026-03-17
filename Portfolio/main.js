@@ -11,11 +11,11 @@
    ============================================= */
 const projects = [
   {
-    title: "Lorem Ipsum Project Alpha",
+    title: "Crave | Full-Stack Food Ordering Platform",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-    image: null, // replace with e.g. "assets/project1.jpg"
-    tags: ["React", "Node.js", "MongoDB"],
+      "Developed a secure, production-ready ordering platform with JWT authentication, role-based access control, and Stripe payment integration, backed by scalable RESTful APIs and relational schemas deployed on AWS.",
+    image: null,
+    tags: ["Java", "Spring Boot", "React", "AWS", ],
     link: "#",
   },
   {
