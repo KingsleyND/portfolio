@@ -339,7 +339,7 @@ ul { list-style: none; }
 
 .about__image-ring {
   position: absolute;
-  inset: -8px;
+  inset: -1px;
   border-radius: 50%;
   background: conic-gradient(from 0deg, var(--blue-bright), var(--accent), transparent 60%, var(--blue-bright));
   animation: spin 8s linear infinite;
