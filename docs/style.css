@@ -566,43 +566,38 @@ ul { list-style: none; }
 
 .cert-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 20px 32px;
-  width: 220px;
+  gap: 10px;
+  padding: 14px 24px;
+  width: auto;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 2px 16px var(--gold-strong);
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 .cert-card:hover {
   border-color: var(--border-hover);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 8px 32px var(--gold-strong);
   transform: translateY(-2px);
 }
 
 .cert-card__logo {
-  height: 36px;
-  width: auto;
-  max-width: 120px;
+  height: 28px;
+  width: 28px;
   object-fit: contain;
-  opacity: 0.85;
-}
-[data-theme="dark"] .cert-card__logo {
-  filter: brightness(0) invert(1);
-  opacity: 0.75;
+  flex-shrink: 0;
 }
 
 .cert-card__name {
   font-family: var(--font-display);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-secondary);
-  text-align: center;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
 /* =============================================
