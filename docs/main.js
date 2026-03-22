@@ -17,7 +17,7 @@ const projects = [
     image: "images/crave_ss.jpg",
     imageFit: "cover",
     tags: ["Java", "Spring Boot", "React", "AWS", ],
-    link: "#",
+    link: "https://github.com/KingsleyND/Crave",
   },
   {
     title: "Java Web App CI/CD Pipeline",
@@ -35,7 +35,7 @@ const projects = [
     image: "images/AI-RAG.jpg",
     imageFit: "cover",
     tags: ["AWS Bedrock", "EC2", "Lambda", "S3", "IAM", "Claude", "Python"],
-    link: "#",
+    link: "https://github.com/KingsleyND/Enterprise-RAG-Based-FAQ-Chatbot",
   },
   {
     title: "",
@@ -52,7 +52,7 @@ const projects = [
     image: "images/ai_saass_ss.jpg",
     imageFit: "contain",
     tags: ["Tailwind", "React", "Next.js", "Node.js"],
-    link: "#",
+    link: "https://github.com/KingsleyND/Athena",
   },
   {
     title: "Cloud-Native Smart Inbox with Sentiment Analysis",
@@ -61,7 +61,7 @@ const projects = [
     image: "images/Sentiment.jpg",
     imageFit: "contain",
     tags: ["AWS Lambda", "S3", "SQS", "Comprehend", "CloudFront"],
-    link: "#",
+    link: "https://github.com/KingsleyND/Cloud-Native-AI-Smart-Inbox-with-Sentiment-Analysis",
   },
 ];
 
