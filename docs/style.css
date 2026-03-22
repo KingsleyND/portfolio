@@ -591,6 +591,10 @@ ul { list-style: none; }
   flex-shrink: 0;
 }
 
+.cert-card__logo--aws-dark { display: none; }
+[data-theme="dark"] .cert-card__logo--aws-light { display: none; }
+[data-theme="dark"] .cert-card__logo--aws-dark { display: block; }
+
 .cert-card__name {
   font-family: var(--font-display);
   font-size: 0.82rem;
