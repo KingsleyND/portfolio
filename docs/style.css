@@ -768,6 +768,35 @@ ul { list-style: none; }
   color: var(--gold);
 }
 
+.projects__more {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.projects__more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  transition: color var(--transition), transform var(--transition);
+}
+.projects__more-link:hover {
+  color: var(--gold);
+  transform: scale(1.04);
+}
+
+.projects__more-arrow {
+  display: inline-block;
+  transition: transform var(--transition);
+}
+.projects__more-link:hover .projects__more-arrow {
+  transform: translateX(6px);
+}
+
 /* =============================================
    CONTACT
    ============================================= */
