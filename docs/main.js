@@ -14,7 +14,8 @@ const projects = [
     title: "Crave | Full-Stack Food Ordering Platform",
     description:
       "Developed a secure, production-ready ordering platform with JWT authentication, role-based access control, and Stripe payment integration, backed by scalable RESTful APIs and relational schemas deployed on AWS.",
-    image: null,
+    image: "images/crave_ss.jpg",
+    imageFit: "cover",
     tags: ["Java", "Spring Boot", "React", "AWS", ],
     link: "#",
   },
@@ -48,7 +49,8 @@ const projects = [
     title: "Athena | AI SaaS Platform",
     description:
       "Developed a SaaS platform integrating AI-powered content generation with Next.js App Router, Clerk-based authentication, and protected API routing, while implementing Stripe for subscription billing with tiered plans, usage tracking, and webhook-driven lifecycle automation.",
-    image: null,
+    image: "images/ai_saass_ss.jpg",
+    imageFit: "contain",
     tags: ["Tailwind", "React", "Next.js", "Node.js"],
     link: "#",
   },
