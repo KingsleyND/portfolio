@@ -38,12 +38,13 @@ const projects = [
     link: "https://github.com/KingsleyND/Enterprise-RAG-Based-FAQ-Chatbot",
   },
   {
-    title: "",
+    title: "AI Security Scanner",
     description:
-      ".",
-    image: null,
-    tags: ["LangChain", "OpenAI", "AWS Bedrock"],
-    link: "#",
+      "LLM-powered static analysis tool that uses Google Gemini 2.5 Flash to detect security vulnerabilities in Python source code — delivering structured, severity-graded reports with remediation snippets directly in the terminal.",
+    image: "images/ai_scanner.jpg",
+    imageFit: "cover",
+    tags: ["Python", "Google Gemini", "Pydantic", "colorama"],
+    link: "https://github.com/KingsleyND/ai_security_scanner_python_gemini",
   },
   {
     title: "Athena | AI SaaS Platform",
