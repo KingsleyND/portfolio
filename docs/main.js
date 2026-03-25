@@ -29,7 +29,7 @@ const projects = [
     link: "#",
   },
   {
-    title: "Enterprise RAG-based Chatbot",
+    title: "Enterprise RAG-based AI Chatbot",
     description:
       "Engineered a secure, RAG-powered AI assistant on AWS that indexes SOPs, delivers hallucination-free answers, while maintaining data privacy and mitigating prompt injection risks with serverless Lambda orchestration.",
     image: "images/AI-RAG.jpg",
@@ -58,7 +58,7 @@ const projects = [
   {
     title: "Cloud-Native Smart Inbox with Sentiment Analysis",
     description:
-      "Built a real-time, serverless pipeline that analyzes message sentiment with Comprehend and dynamically routes critical requests via SQS for fast, fault-tolerant response handling.",
+      "Built a real-time AI, serverless pipeline that analyzes message sentiment with Comprehend and dynamically routes critical requests via SQS for fast, fault-tolerant response handling.",
     image: "images/Sentiment.jpg",
     imageFit: "contain",
     tags: ["AWS Lambda", "S3", "SQS", "Comprehend", "CloudFront"],
