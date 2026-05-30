@@ -367,7 +367,7 @@ ul { list-style: none; }
   flex-shrink: 0;
   position: relative;
   width: 300px;
-  height: 300px;
+  height: 301px;
   display: flex;
   align-items: center;
   justify-content: center;
